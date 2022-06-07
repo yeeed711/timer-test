@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>timer</title>
+  </head>
+  <body>
+    <h1><img src="weniv-logo.png" alt="" /></h1>
+    <div id="app">
+      <h2>timer</h2>
+      <div class="timer">
+        <div class="hour">00</div>
+        <div class="min">00</div>
+        <div class="sec">00</div>
+      </div>
+      <div class="warp_btn">
+        <button class="start__btn">start</button>
+        <button class="reset__btn">reset</button>
+      </div>
+    </div>
+    <script>
+      const timerBox = document.querySelector(".timer");
+      const hour = document.querySelector(".hour");
+      const sectext = document.querySelector(".sec");
+      const start = document.querySelector(".start__btn");
+      const reset = document.querySelector(".reset__btn");
+      let time = 250;
+      // let min = "";
+      let sec = "";
+
+      start.addEventListener("click", () => {
+        let timer = setInterval(function () {
+          start.classList.add("pause");
+          start.innerText = "pause";
+          miu = parseInt(time / 60);
+          sec = time % 60;
+          sectext.innerText = `0${sec}`;
+          time--;
+          if (sec <= 0) {
+            alert("Finish");
+            clearInterval(timer);
+          }
+        }, 1000);
+      });
+    </script>
+  </body>
+</html>
